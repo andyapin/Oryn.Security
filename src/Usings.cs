@@ -1,0 +1,1 @@
+﻿global using Console = Plugin.Toolkit.Security.ConsoleHelper;
