@@ -44,8 +44,6 @@ namespace Plugin.Toolkit.Security
                         cryptoStream.Write(plainBytes, 0, plainBytes.Length);
                         cryptoStream.FlushFinalBlock();
                         byte[] cipherBytes = memoryStream.ToArray();
-                        memoryStream.Close();
-                        cryptoStream.Close();
                         return Convert.ToBase64String(cipherBytes, 0, cipherBytes.Length);
                     }
                 }
