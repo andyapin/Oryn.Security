@@ -30,11 +30,11 @@ namespace Plugin.Toolkit.Security
 
         /// <summary>
         /// Initializes a new instance of the JwtHelper class.
-        /// <para>algorithm: The security algorithm to use for signing the JWT.</para>
-        /// <para>secret: The secret key to use for signing the JWT.</para>
-        /// <para>expires: The number of minutes before the JWT expires. Defaults to 5.</para>
-        /// <para>issuer: The issuer of the JWT. Defaults to an empty string.</para>
-        /// <para>audience: The audience of the JWT. Defaults to an empty string.</para>
+        /// <para><c>algorithm:</c> The security algorithm to use for signing the JWT.</para>
+        /// <para><c>secret:</c> The secret key to use for signing the JWT.</para>
+        /// <para><c>expires:</c> The number of minutes before the JWT expires. Defaults to 5.</para>
+        /// <para><c>issuer:</c> The issuer of the JWT. Defaults to an empty string.</para>
+        /// <para><c>audience:</c> The audience of the JWT. Defaults to an empty string.</para>
         /// </summary>
         /// <param name="algorithm">The security algorithm to use for signing the JWT.</param>
         /// <param name="secret">The secret key to use for signing the JWT.</param>
