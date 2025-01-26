@@ -1,27 +1,8 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-
-namespace Plugin.Toolkit.Security
+﻿namespace Plugin.Toolkit.Security.Services
 {
-    public enum SecurityAlgorithm
-    {
-        HmacSha256,
-        HmacSha384,
-        HmacSha512,
-        RsaSha256,
-        RsaSha384,
-        RsaSha512,
-        EcdsaSha256,
-        EcdsaSha384,
-        EcdsaSha512
-    }
-
-    public class SecurityToolkitJWT
+    public class JWTService
     {
         private SecurityAlgorithm _algorithm { get; set; }
-        private int _expires { get; set; } = 5;
         private string _issuer { get; set; } = "";
         private bool _is_issuer { get; set; } = false;
         private string _audience { get; set; } = "";
@@ -30,22 +11,20 @@ namespace Plugin.Toolkit.Security
 
         /// <summary>
         /// Initializes a new instance of the JwtHelper class.
-        /// <para><c>algorithm:</c> The security algorithm to use for signing the JWT.</para>
-        /// <para><c>secret:</c> The secret key to use for signing the JWT.</para>
-        /// <para><c>expires:</c> The number of minutes before the JWT expires. Defaults to 5.</para>
-        /// <para><c>issuer:</c> The issuer of the JWT. Defaults to an empty string.</para>
-        /// <para><c>audience:</c> The audience of the JWT. Defaults to an empty string.</para>
+        /// <code>
+        /// algorithm = The security algorithm to use for signing the JWT. Defaults to SecurityAlgorithm.HmacSha256.
+        /// issuer = The issuer of the JWT. Defaults to an empty string.
+        /// audience = The audience of the JWT. Defaults to an empty string.
+        /// </code>
         /// </summary>
-        /// <param name="algorithm">The security algorithm to use for signing the JWT.</param>
         /// <param name="secret">The secret key to use for signing the JWT.</param>
-        /// <param name="expires">The number of minutes before the JWT expires. Defaults to 5.</param>
+        /// <param name="algorithm">The security algorithm to use for signing the JWT. Defaults to SecurityAlgorithm.HmacSha256.</param>
         /// <param name="issuer">The issuer of the JWT. Defaults to an empty string.</param>
         /// <param name="audience">The audience of the JWT. Defaults to an empty string.</param>
-        public SecurityToolkitJWT(SecurityAlgorithm algorithm, string secret, int expires = 5, string issuer = "", string audience = "")
+        public JWTService(string secret, SecurityAlgorithm algorithm = SecurityAlgorithm.HmacSha256, string issuer = "", string audience = "")
         {
             _algorithm = algorithm;
             _secret = Encoding.UTF8.GetBytes(secret);
-            _expires = expires;
             _issuer = issuer;
             _audience = audience;
             if (_issuer != "")
@@ -115,7 +94,7 @@ namespace Plugin.Toolkit.Security
         /// </summary>
         /// <param name="claims">The claims to be included in the JWT.</param>
         /// <returns>A string representation of the JWT.</returns>
-        public string Create(IEnumerable<Claim> claims)
+        protected string Create(IEnumerable<Claim> claims, int expires = 5)
         {
             var securityKey = new SymmetricSecurityKey(_secret);
             var signingCredentials = new SigningCredentials(securityKey, Algorithms(_algorithm));
@@ -123,7 +102,7 @@ namespace Plugin.Toolkit.Security
                 issuer: _issuer,
                 audience: _audience,
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(_expires),
+                expires: DateTime.UtcNow.AddMinutes(expires),
                 signingCredentials: signingCredentials
             );
             string tokenString = new JwtSecurityTokenHandler().WriteToken(token);

@@ -4,12 +4,27 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://github.com/andyapin/Plugin.Toolkit.Security</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/andyapin/Plugin.Toolkit.Security</RepositoryUrl>
+		<PackageTags>plugin;toolkit;security;jwt;md5;sha;android;ios;desktop;windows;mac</PackageTags>
+		<Description></Description>
+		<Copyright>© andyapin - www.handityo.my.id</Copyright>
+		<Authors>Ibnu Hajar Handityo</Authors>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>icon.png</PackageIcon>
+		<Version>1.0.0</Version>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
 		<DebugSymbols>false</DebugSymbols>
 		<DebugType>None</DebugType>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="icon.png" Pack="true" PackagePath="\" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

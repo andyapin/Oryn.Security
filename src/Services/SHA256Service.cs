@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Plugin.Toolkit.Security
+﻿namespace Plugin.Toolkit.Security.Services
 {
-    public class SecurityToolkitSHA256
+    public class SHA256Service
     {
         private byte[] iv = new byte[16] { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 };
         private byte[] key;
@@ -17,7 +9,7 @@ namespace Plugin.Toolkit.Security
         /// Initializes a new instance of the SecurityToolkitSHA256 class.
         /// </summary>
         /// <param name="secret">The secret key to use for encryption and decryption.</param>
-        public SecurityToolkitSHA256(string secret)
+        public SHA256Service(string secret)
         {
             key = Encoding.ASCII.GetBytes(secret);
         }

@@ -1,8 +1,6 @@
-﻿using System.Text;
-
-namespace Plugin.Toolkit.Security
+﻿namespace Plugin.Toolkit.Security.Services
 {
-    public class SecurityToolkitMD5
+    public class MD5Service
     {
         /// <summary>
         /// Generates a MD5 hash for the provided string value. If no value is provided, 
