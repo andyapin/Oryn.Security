@@ -8,12 +8,12 @@
 		<PackageProjectUrl>https://github.com/andyapin/Plugin.Toolkit.Security</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/andyapin/Plugin.Toolkit.Security</RepositoryUrl>
 		<PackageTags>plugin;toolkit;security;jwt;md5;sha;sha256;android;ios;desktop;windows;mac;web;blazor;asp</PackageTags>
-		<Description></Description>
+		<Description>Is a versatile C# library built with native .NET Microsoft.Data.Sqlite, compatible with all .NET platforms. This library is designed to simplify and accelerate the management of SQLite databases in your applications. It offers enhanced performance and supports cross-platform functionality on operating systems such as Android, iOS, Windows, macOS, and Linux.</Description>
 		<Copyright>© andyapin - www.handityo.my.id</Copyright>
 		<Authors>Ibnu Hajar Handityo</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>icon.png</PackageIcon>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
