@@ -7,7 +7,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageProjectUrl>https://github.com/andyapin/Plugin.Toolkit.Security</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/andyapin/Plugin.Toolkit.Security</RepositoryUrl>
-		<PackageTags>plugin;toolkit;security;jwt;md5;sha;android;ios;desktop;windows;mac</PackageTags>
+		<PackageTags>plugin;toolkit;security;jwt;md5;sha;sha256;android;ios;desktop;windows;mac;web;blazor;asp</PackageTags>
 		<Description></Description>
 		<Copyright>© andyapin - www.handityo.my.id</Copyright>
 		<Authors>Ibnu Hajar Handityo</Authors>
@@ -27,7 +27,6 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.1" />
 	</ItemGroup>
 
