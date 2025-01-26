@@ -1,91 +1,59 @@
 # Plugin.Toolkit.Security
 
-### Plugin.Toolkit.Security Documentation
+![icon](https://handityo.my.id/icon_nuget.png)
 
-#### Introduction
-The `Plugin.Toolkit.Security` library provides various functionalities for security operations, including working with JSON Web Tokens (JWT), generating MD5 hashes, and performing SHA-256 encryption and decryption.
+[![NuGet](https://img.shields.io/nuget/v/Plugin.Toolkit.Security)](https://www.nuget.org/packages/Plugin.Toolkit.Security) 
+[![.NET](https://img.shields.io/badge/.NET%208.0-512BD4?style=flat&logo=dotnet&label=.NET%20Core)](https://dotnet.microsoft.com/en-us/apps/maui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-#### Functions
 
-**JWT (JSON Web Token)**
-   - **Constructor:** Initializes a new instance of the `SecurityToolkitJWT` class with the specified algorithm, secret, expiration time, issuer, and audience.
-     ```csharp
-     SecurityToolkitJWT(SecurityAlgorithm algorithm, string secret, int expires = 5, string issuer = "", string audience = "")
-     ```
-     **Parameters:**
-     - `algorithm`: The security algorithm to use (e.g., HmacSha512).
-     - `secret`: The secret key used for signing the JWT.
-     - `expires`: The expiration time of the token in minutes (default is 5 minutes).
-     - `issuer`: The issuer of the token (default is an empty string).
-     - `audience`: The audience of the token (default is an empty string).
+**Secure Your Data, Elevate Your Trust: Plugin.Toolkit.Security** 🚀
 
-   - **Create:** Generates a JWT with specified claims.
-     ```csharp
-     string Create(IEnumerable<Claim> claims)
-     ```
-     **Parameters:**
-     - `claims`: An enumerable collection of claims to include in the JWT.
-     **Returns:** A string representing the generated JWT token.
+The `Plugin.Toolkit.Security` library provides essential security functionalities for C# applications, including working with JSON Web Tokens (JWT), generating MD5 hashes, and performing SHA-256 encryption and decryption.
 
-   - **Verify:** Verifies the validity of a given JWT.
-     ```csharp
-     bool Verify(string token)
-     ```
-     **Parameters:**
-     - `token`: The JWT to verify.
-     **Returns:** `true` if the token is valid; otherwise, `false`.
+## 🚀 Features
 
-   - **Claims:** Extracts the claims from a given JWT.
-     ```csharp
-     ClaimsPrincipal Claims(string token)
-     ```
-     **Parameters:**
-     - `token`: The JWT from which to extract claims.
-     **Returns:** A `ClaimsPrincipal` object containing the claims.
+- **JWT Operations:** Create, verify, and extract claims from JWT tokens.
+- **MD5 Hashing:** Generate MD5 hashes for strings.
+- **SHA-256 Encryption/Decryption:** Encrypt and decrypt strings using SHA-256.
 
-**MD5**
-   - **Hash:** Generates an MD5 hash from a given input.
-     ```csharp
-     string Hash(string value = "")
-     ```
-     **Parameters:**
-     - `value`: The input string to hash. If no value is provided, an empty string will be hashed.
-     **Returns:** The MD5 hash of the input string.
+## 📦 Installation
 
-**SHA256**
-   - **Encryption:** Encrypts a given input using SHA-256.
-     ```csharp
-     string Encryption(string value)
-     ```
-     **Parameters:**
-     - `value`: The input string to encrypt.
-     **Returns:** The SHA-256 encrypted string.
+To install the `Plugin.Toolkit.Security` library, use the NuGet package manager:
 
-   - **Decryption:** Decrypts a given SHA-256 encrypted input.
-     ```csharp
-     string Decryption(string value)
-     ```
-     **Parameters:**
-     - `value`: The SHA-256 encrypted string to decrypt.
-     **Returns:** The decrypted string.
+```sh
+dotnet add package Plugin.Toolkit.Security
+```
 
-#### Usage Examples
+## 💡 Usage
 
-**JWT**
+## **JWT**
+
+### **Parameters**
+- `secret`: The secret key used for signing the JWT.
+- `algorithm`: The security algorithm to use (e.g., HmacSha256).
+- `issuer`: The issuer of the token (default is an empty string).
+- `audience`: The audience of the token (default is an empty string).
+
+### **Create**
+Generates a JWT with specified claims.
 ```csharp
-string key = "secret-key";
-var jwt = new SecurityToolkitJWT(SecurityAlgorithm.HmacSha512, key);
-
-// Create
+string secret = "secret-key";
+var security = new SecurityToolkit(secret, SecurityAlgorithm.HmacSha512);
 Claim[] claims = new Claim[]
 {
     new Claim(JwtRegisteredClaimNames.Sub, UserId)
 };
-string jwtString = jwt.Create(claims);
+string jwtString = security.JWT.Create(claims);
+```
 
-// Verify
-bool verify = jwt.Verify(jwtString);
-if (verify != null)
+### **Verify**
+Verifies the validity of a given JWT.
+```csharp
+string secret = "secret-key";
+var security = new SecurityToolkit(secret, SecurityAlgorithm.HmacSha512);
+bool verify = security.JWT.Verify(jwtString);
+if (verify)
 {
     Console.WriteLine("Token is valid.");
 }
@@ -93,9 +61,14 @@ else
 {
     Console.WriteLine("Token is invalid.");
 }
+```
 
-// Claims
-ClaimsPrincipal claims = jwt.Claims(jwtString);
+### **Claims**
+Extracts the claims from a given JWT.
+```csharp
+string secret = "secret-key";
+var security = new SecurityToolkit(secret, SecurityAlgorithm.HmacSha512);
+ClaimsPrincipal claims = security.JWT.Claims(jwtString);
 if (claims != null)
 {
     Console.WriteLine("Token is valid.");
@@ -111,22 +84,37 @@ else
 }
 ```
 
-**MD5**
+## **MD5**
+
+### **Hash**
+Generates an MD5 hash from a given input.
 ```csharp
-var md5 = new SecurityToolkitMD5();
-// MD5 hash
-string hash = md5.Hash();
+var security = new SecurityToolkit("");
+string hash = security.MD5.Hash();
 ```
 
-**SHA256**
+## **SHA256**
+
+### **Encryption**
+Encrypts a given input using SHA-256.
 ```csharp
-string key = "secret-key";
-var sha = new SecurityToolkitSHA256(key);
+string secret = "secret-key";
+var security = new SecurityToolkit(secret);
 string strToEncrypt = "eating some cake!";
-
-// Encryption
-string encryptedStr = sha.Encryption(strToEncrypt);
-
-// Decryption
-string decryptedStr = sha.Decryption(encryptedStr);
+string encryptedStr = security.SHA256.Encryption(strToEncrypt);
 ```
+
+### **Decryption**
+Decrypts a given SHA-256 encrypted input.
+```csharp
+string secret = "secret-key";
+var security = new SecurityToolkit(secret);
+string encryptedStr = "xxxxxxxx";
+string decryptedStr = security.SHA256.Decryption(encryptedStr);
+```
+
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## Contact
+If you have any questions or suggestions, please feel free to contact me at andyapin@gmail.com
