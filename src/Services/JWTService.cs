@@ -27,14 +27,8 @@
             _secret = Encoding.UTF8.GetBytes(secret);
             _issuer = issuer;
             _audience = audience;
-            if (_issuer != "")
-            {
-                _is_issuer = true;
-            }
-            if (_audience != "")
-            {
-                _is_audience = true;
-            }
+            if (_issuer != "") _is_issuer = true;
+            if (_audience != "") _is_audience = true;
         }
         private string Algorithms(SecurityAlgorithm _algorithm)
         {
@@ -144,14 +138,8 @@
         public ClaimsPrincipal Claims(string token)
         {
             var validationParameters = DecodeJwt(token);
-            if (validationParameters != null)
-            {
-                return validationParameters;
-            }
-            else
-            {
-                return null;
-            }
+            if (validationParameters != null) return validationParameters;
+            else return null;
         }
     }
 }
