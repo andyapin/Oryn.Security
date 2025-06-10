@@ -1,4 +1,4 @@
-﻿namespace Plugin.Toolkit.Security.Services
+﻿namespace Plugin.Toolkit.Security
 {
     public class JWTService
     {

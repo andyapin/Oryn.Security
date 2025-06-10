@@ -1,4 +1,4 @@
-﻿namespace Plugin.Toolkit.Security.Enums
+﻿namespace Plugin.Toolkit.Security
 {
     public enum SecurityAlgorithm
     {
