@@ -88,7 +88,7 @@
         /// </summary>
         /// <param name="claims">The claims to be included in the JWT.</param>
         /// <returns>A string representation of the JWT.</returns>
-        protected string Create(IEnumerable<Claim> claims, int expires = 5)
+        public string Create(IEnumerable<Claim> claims, int expires = 5)
         {
             var securityKey = new SymmetricSecurityKey(_secret);
             var signingCredentials = new SigningCredentials(securityKey, Algorithms(_algorithm));

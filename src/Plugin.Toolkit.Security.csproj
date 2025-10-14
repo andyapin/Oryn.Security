@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<!--<TargetFramework>net8.0</TargetFramework>-->
-		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+		<TargetFrameworks>net9.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -14,7 +13,7 @@
 		<Authors>Ibnu Hajar Handityo</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>icon.png</PackageIcon>
-		<Version>1.0.3</Version>
+		<Version>1.0.4</Version>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -29,7 +28,7 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
 	</ItemGroup>
 
 </Project>
