@@ -5,10 +5,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageProjectUrl>https://github.com/andyapin/Plugin.Toolkit.Security</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/andyapin/Plugin.Toolkit.Security</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/andyapin/Oryn.Security</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/andyapin/Oryn.Security</RepositoryUrl>
 		<PackageTags>plugin;toolkit;security;jwt;md5;sha;sha256;android;ios;desktop;windows;mac;web;blazor;asp</PackageTags>
-		<Description>The Plugin.Toolkit.Security library provides essential security functionalities for C# applications, including working with JSON Web Tokens (JWT), generating MD5 hashes, and performing SHA-256 encryption and decryption.</Description>
+		<Description>The Oryn.Security library provides essential security functionalities for C# applications, including working with JSON Web Tokens (JWT), generating MD5 hashes, and performing SHA-256 encryption and decryption.</Description>
 		<Copyright>© andyapin - www.handityo.my.id</Copyright>
 		<Authors>Ibnu Hajar Handityo</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

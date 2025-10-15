@@ -3,4 +3,4 @@ global using System.IdentityModel.Tokens.Jwt;
 global using System.Security.Claims;
 global using System.Security.Cryptography;
 global using System.Text;
-global using Console = Plugin.Toolkit.Security.Helpers.ConsoleHelper;
+global using Console = Oryn.Security.Helpers.ConsoleHelper;

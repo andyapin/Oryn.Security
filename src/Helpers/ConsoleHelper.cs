@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Plugin.Toolkit.Security.Helpers
+namespace Oryn.Security.Helpers
 {
     internal class ConsoleHelper
     {

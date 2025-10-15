@@ -1,7 +1,7 @@
-﻿namespace Plugin.Toolkit.Security
+﻿namespace Oryn.Security
 {
 
-    public class SecurityToolkit
+    public class OrynSecurity
     {
         public JWTService JWT { get; set; }
         public MD5Service MD5 { get; set; }
@@ -22,7 +22,7 @@
         /// audience = The audience of the JWT. Defaults to an empty string.
         /// </code>
         /// </summary>
-        public SecurityToolkit(string secret)
+        public OrynSecurity(string secret)
         {
             JWT = new JWTService(secret);
             MD5 = new MD5Service();
@@ -42,7 +42,7 @@
         /// <param name="algorithm">The security algorithm to use for signing the JWT. Defaults to SecurityAlgorithm.HmacSha256.</param>
         /// <param name="issuer">The issuer of the JWT. Defaults to an empty string.</param>
         /// <param name="audience">The audience of the JWT. Defaults to an empty string.</param>
-        public SecurityToolkit(string secret, SecurityAlgorithm algorithm = SecurityAlgorithm.HmacSha256, string issuer = "", string audience = "")
+        public OrynSecurity(string secret, SecurityAlgorithm algorithm = SecurityAlgorithm.HmacSha256, string issuer = "", string audience = "")
         {
             JWT = new JWTService(secret, algorithm, issuer, audience);
             MD5 = new MD5Service();

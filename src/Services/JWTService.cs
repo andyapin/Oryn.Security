@@ -1,4 +1,4 @@
-﻿namespace Plugin.Toolkit.Security
+﻿namespace Oryn.Security
 {
     public class JWTService
     {
